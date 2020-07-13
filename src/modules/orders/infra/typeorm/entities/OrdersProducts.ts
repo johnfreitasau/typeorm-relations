@@ -13,13 +13,15 @@ import Product from '@modules/products/infra/typeorm/entities/Product';
 
 @Entity('orders_products')
 class OrdersProducts {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @ManyToOne(() => Order)
+  @JoinColumn({ name: 'order_id' })
   order: Order;
 
-  @Column()
+  @ManyToOne(() => Product)
+  @JoinColumn({ name: 'product_id' })
   product: Product;
 
   @Column()

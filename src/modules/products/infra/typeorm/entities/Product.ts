@@ -5,13 +5,14 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
+  ManyToOne,
 } from 'typeorm';
 
 import OrdersProducts from '@modules/orders/infra/typeorm/entities/OrdersProducts';
 
-@Entity()
+@Entity('products')
 class Product {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
@@ -23,7 +24,7 @@ class Product {
   @Column()
   quantity: number;
 
-  @Column()
+  @OneToMany(() => OrdersProducts, orderProducts => orderProducts.product)
   order_products: OrdersProducts[];
 
   @CreateDateColumn()
