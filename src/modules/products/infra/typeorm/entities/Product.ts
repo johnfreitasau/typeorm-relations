@@ -5,7 +5,6 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
-  ManyToOne,
 } from 'typeorm';
 
 import OrdersProducts from '@modules/orders/infra/typeorm/entities/OrdersProducts';

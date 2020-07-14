@@ -11,7 +11,7 @@ export default class CustomersController {
 
     const createCustomer = container.resolve(CreateCustomerService);
 
-    const user = createCustomer.execute({ name, email });
+    const user = await createCustomer.execute({ name, email });
 
     return response.json(user);
   }
