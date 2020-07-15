@@ -10,7 +10,7 @@ export default class OrdersController {
     // TODO
     const { id } = request.params;
 
-    const findOrder = await container.resolve(FindOrderService);
+    const findOrder = container.resolve(FindOrderService);
 
     const order = await findOrder.execute({ id });
 
