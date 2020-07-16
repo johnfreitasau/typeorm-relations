@@ -25,7 +25,7 @@ export default class CreateOrdersProducts1594674961402
           {
             name: 'price',
             type: 'decimal',
-            precision: 10,
+            precision: 8,
             scale: 2,
           },
           {
@@ -41,6 +41,24 @@ export default class CreateOrdersProducts1594674961402
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
+          },
+        ],
+        foreignKeys: [
+          {
+            name: 'OrdersProductsOrder',
+            referencedTableName: 'orders',
+            referencedColumnNames: ['id'],
+            columnNames: ['order_id'],
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
+          },
+          {
+            name: 'OrdersProductsProduct',
+            referencedTableName: 'products',
+            referencedColumnNames: ['id'],
+            columnNames: ['product_id'],
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
           },
         ],
       }),

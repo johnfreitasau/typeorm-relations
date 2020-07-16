@@ -30,11 +30,11 @@ export default class CreateOrders1594674949798 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: 'customer',
+            name: 'OrderCustomer',
             referencedTableName: 'customers',
             referencedColumnNames: ['id'],
             columnNames: ['customer_id'],
-            onDelete: 'SET NULL',
+            onDelete: 'CASCADE',
             onUpdate: 'CASCADE',
           },
         ],
